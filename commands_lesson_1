@@ -1,0 +1,9 @@
+Устанавливаем либу для фронта
+composer require laravel/ui
+
+Устанавливаем бутстрап
+php artisan ui bootstrap
+
+Подключаемм стандартную аутентификацию
+php artisan ui:auth
+
