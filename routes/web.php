@@ -13,11 +13,24 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group([],function (){
+Route::group([], function () {
     Route::get('/', \App\Http\Controllers\Main\IndexController::class);
 
 
 });
+
+Route::prefix('/admin')->group(function () {
+    Route::get('/', \App\Http\Controllers\Admin\Main\IndexController::class);
+
+    Route::prefix('/categories')->group(function (){
+        Route::get('/', \App\Http\Controllers\Admin\Category\IndexController::class)->name('admin.category.index');
+
+    });
+
+
+});
+
+
 
 
 Auth::routes();
