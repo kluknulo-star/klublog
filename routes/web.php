@@ -26,6 +26,7 @@ Route::prefix('/admin')->group(function () {
         Route::get('', \App\Http\Controllers\Admin\Category\IndexController::class)->name('admin.category.index');
         Route::post('', \App\Http\Controllers\Admin\Category\StoreController::class)->name('admin.category.store');
         Route::get('/create', \App\Http\Controllers\Admin\Category\CreateController::class)->name('admin.category.create');
+        Route::get('/{category}', \App\Http\Controllers\Admin\Category\ShowController::class)->name('admin.category.show')->where('category', '[0-9]+');
 
     });
 
