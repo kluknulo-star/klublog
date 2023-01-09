@@ -21,7 +21,7 @@
             <div class="row">
 
                 <div class="col-12">
-                    <h4>Categories</h4>
+                    <h4>Main</h4>
                 </div>
             </div>
             <!-- /.row -->

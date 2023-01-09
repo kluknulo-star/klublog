@@ -9,12 +9,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Категории</h1>
+                        <h1 class="m-0">Тэги</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
                 <div class="col-12">
-                    <a class="btn btn-dark" href="{{route('admin.category.create')}}" role="button">Добавить
-                        категорию</a>
+                    <a class="btn btn-dark" href="{{route('admin.tag.create')}}" role="button">Добавить
+                        тег</a>
                 </div>
             </div><!-- /.container-fluid -->
         </div>
@@ -26,21 +26,6 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card w-25">
-                            <div class="card-header">
-                                <h3 class="card-title">Fixed Header Table</h3>
-
-                                <div class="card-tools">
-                                    <div class="input-group input-group-sm" style="width: 150px;">
-                                        <input type="text" name="table_search" class="form-control float-right"
-                                               placeholder="Search">
-                                        <div class="input-group-append">
-                                            <button type="submit" class="btn btn-default">
-                                                <i class="fas fa-search"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <!-- /.card-header -->
                             <div class="card-body table-responsive p-0">
                                 <table class="table table-head-fixed text-nowrap">
@@ -52,20 +37,20 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($categories as $category)
+                                    @foreach($tags as $tag)
                                         <tr>
-                                            <td>{{$category->category_id}}</td>
-                                            <td>{{$category->title}}</td>
+                                            <td>{{$tag->tag_id}}</td>
+                                            <td>{{$tag->title}}</td>
                                             <td class="text-center">
-                                                <a href="{{route('admin.category.show', ['category' => $category->category_id])}}"
+                                                <a href="{{route('admin.tag.show', ['tag' => $tag->tag_id])}}"
                                                    class="text-dark"><i class="far fa-eye"></i></a></td>
                                             <td class="text-center">
-                                                <a href="{{route('admin.category.edit', ['category' => $category->category_id])}}"
+                                                <a href="{{route('admin.tag.edit', ['tag' => $tag->tag_id])}}"
                                                    class="text-info"><i class="fas fa-paint-brush"></i></a></td>
                                             <td class="text-center">
                                                 <button class="border-0 bg-transparent">
                                                     <a class="text-danger" data-toggle="modal"
-                                                       data-target="#deleteCategoryModal{{$category->category_id}}">
+                                                       data-target="#deleteCategoryModal{{$tag->tag_id}}">
                                                         <i class="far fa-trash-alt"></i>
                                                     </a>
                                                 </button>
@@ -73,26 +58,25 @@
                                         </tr>
 
                                         <!-- Modal -->
-                                        <div class="modal fade" id="deleteCategoryModal{{$category->category_id}}"
+                                        <div class="modal fade" id="deleteCategoryModal{{$tag->tag_id}}"
                                              tabindex="-1" role="dialog" aria-labelledby="deleteCategoryModal"
                                              aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="deleteCategoryModalLabel">Удаление
-                                                            категории</h5>
+                                                            тега</h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                                 aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        Вы действительно хотите удалить категорию "{{$category->title}}
-                                                        "?
+                                                        Вы действительно хотите удалить тег "{{$tag->title}}"?
                                                     </div>
                                                     <div class="modal-footer">
                                                         <form
-                                                            action="{{route('admin.category.destroy', ['category' => $category->category_id])}}"
+                                                            action="{{route('admin.tag.destroy', ['tag' => $tag->tag_id])}}"
                                                             method="post">
                                                             @csrf
                                                             @method('DELETE')
@@ -119,7 +103,7 @@
 
                 </div>
                 <!-- /.row -->
-                {{$categories->withQueryString()->links()}}
+                {{$tags->withQueryString()->links()}}
             </div>
             <!-- /.container-fluid -->
         </div>
