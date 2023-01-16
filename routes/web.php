@@ -20,7 +20,7 @@ Route::group([], function () {
 });
 
 Route::prefix('/admin')->group(function () {
-    Route::get('', \App\Http\Controllers\Admin\Main\IndexController::class);
+    Route::get('', \App\Http\Controllers\Admin\Post\IndexController::class);
 
     Route::prefix('/categories')->group(function (){
         Route::get('', \App\Http\Controllers\Admin\Category\IndexController::class)->name('admin.category.index');
@@ -40,6 +40,16 @@ Route::prefix('/admin')->group(function () {
         Route::get('/{tag}/edit', \App\Http\Controllers\Admin\Tag\EditController::class)->name('admin.tag.edit')->where('tag', '[0-9]+');
         Route::patch('/{tag}', \App\Http\Controllers\Admin\Tag\UpdateController::class)->name('admin.tag.update')->where('tag', '[0-9]+');
         Route::delete('/{tag}', \App\Http\Controllers\Admin\Tag\DestroyController::class)->name('admin.tag.destroy')->where('tag', '[0-9]+');
+    });
+
+    Route::prefix('/posts')->group(function () {
+        Route::get('', \App\Http\Controllers\Admin\Post\IndexController::class)->name('admin.post.index');
+        Route::post('', \App\Http\Controllers\Admin\Post\StoreController::class)->name('admin.post.store');
+        Route::get('/create', \App\Http\Controllers\Admin\Post\CreateController::class)->name('admin.post.create');
+        Route::get('/{post}', \App\Http\Controllers\Admin\Post\ShowController::class)->name('admin.post.show')->where('post', '[0-9]+');
+        Route::get('/{post}/edit', \App\Http\Controllers\Admin\Post\EditController::class)->name('admin.post.edit')->where('post', '[0-9]+');
+        Route::patch('/{post}', \App\Http\Controllers\Admin\Post\UpdateController::class)->name('admin.post.update')->where('post', '[0-9]+');
+        Route::delete('/{post}', \App\Http\Controllers\Admin\Post\DestroyController::class)->name('admin.post.destroy')->where('post', '[0-9]+');
     });
 
 });

@@ -14,4 +14,8 @@ class Tag extends Model
     protected $primaryKey = 'tag_id';
     protected $guarded = [];
 
+    public function posts()
+    {
+        return $this->belongsToMany(Post::class, 'post_tags', 'tag_id', 'post_id');
+    }
 }
