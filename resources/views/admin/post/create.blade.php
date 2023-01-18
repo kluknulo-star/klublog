@@ -62,7 +62,7 @@
                                     <label class="custom-file-label">Выберите изображение</label>
                                 </div>
                                 @error('main_image')
-                                <div class="text-danger">Поле необходимо заполнить</div>
+                                {{$message}}
                                 @enderror
                             </div>
                             <div class="form-group w-50">

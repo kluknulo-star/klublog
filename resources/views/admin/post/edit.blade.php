@@ -42,7 +42,7 @@
                                     @foreach($categories as $category)
                                         <option
                                             {{$category->category_id == $post->category_id ? ' selected ' : ''}}
-                                            value="{{$category->category_id}}">{{$category->title}}</option>
+                                            value={{$category->category_id}}>{{$category->title}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -59,8 +59,8 @@
                             </div>
                             <div class="form-group w-50">
                                 <label>Главное изображение</label>
-                                <div class="w-25">
-                                    <img src="{{$post->main_image}}" alt="main_image">
+                                <div class="w-25 mb-2">
+                                    <img src="{{asset('storage/' . $post->main_image)}}" alt="main_image" height="150px">
                                 </div>
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" name="main_image">
@@ -72,8 +72,8 @@
                             </div>
                             <div class="form-group w-50">
                                 <label>Изображение для превью</label>
-                                <div class="w-25">
-                                    <img src="{{$post->preview_image}}" alt="preview_image">
+                                <div class="w-25 mb-2">
+                                    <img src="{{asset('storage/' . $post->preview_image)}}" alt="preview_image" height="150px">
                                 </div>
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" name="preview_image">
@@ -86,7 +86,7 @@
                             </div>
                             <div class="form-group w-50">
                                 <label>Описание</label>
-                                <textarea id="summernote" name="content">{{old('content')}}</textarea>
+                                <textarea id="summernote" name="content">{{$post->content}}</textarea>
                                 @error('content')
                                 <div class="text-danger">Поле необходимо заполнить</div>
                                 @enderror

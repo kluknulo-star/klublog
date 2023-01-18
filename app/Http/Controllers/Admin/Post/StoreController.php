@@ -18,8 +18,8 @@ class StoreController extends Controller
             $tagIds = $newPost['tag_ids'];
             unset($newPost['tag_ids']);
 
-            $newPost['preview_image'] = Storage::put('files/images', $newPost['preview_image']);
-            $newPost['main_image'] = Storage::put('files/images', $newPost['main_image']);
+            $newPost['preview_image'] = Storage::disk('public')->put('files/images', $newPost['preview_image']);
+            $newPost['main_image'] = Storage::disk('public')->put('files/images', $newPost['main_image']);
 
             $post = Post::firstOrCreate($newPost);
             $post->tags()->attach($tagIds);
