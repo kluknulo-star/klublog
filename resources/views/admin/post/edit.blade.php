@@ -33,7 +33,7 @@
                                     <input type="text" class="form-control" name="title" value="{{$post->title}}">
                                 </label>
                                 @error('title')
-                                <div class="text-danger">Поле необходимо заполнить</div>
+                                <div class="text-danger">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-50">
@@ -60,20 +60,22 @@
                             <div class="form-group w-50">
                                 <label>Главное изображение</label>
                                 <div class="w-25 mb-2">
-                                    <img src="{{asset('storage/' . $post->main_image)}}" alt="main_image" height="150px">
+                                    <img src="{{asset('storage/' . $post->main_image)}}" alt="main_image"
+                                         height="150px">
                                 </div>
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" name="main_image">
                                     <label class="custom-file-label">Выберите изображение</label>
                                 </div>
                                 @error('main_image')
-                                <div class="text-danger">Поле необходимо заполнить</div>
+                                <div class="text-danger">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-50">
                                 <label>Изображение для превью</label>
                                 <div class="w-25 mb-2">
-                                    <img src="{{asset('storage/' . $post->preview_image)}}" alt="preview_image" height="150px">
+                                    <img src="{{asset('storage/' . $post->preview_image)}}" alt="preview_image"
+                                         height="150px">
                                 </div>
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" name="preview_image">
@@ -81,14 +83,14 @@
                                 </div>
 
                                 @error('preview_image')
-                                <div class="text-danger">Поле необходимо заполнить</div>
+                                <div class="text-danger">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-50">
                                 <label>Описание</label>
                                 <textarea id="summernote" name="content">{{$post->content}}</textarea>
                                 @error('content')
-                                <div class="text-danger">Поле необходимо заполнить</div>
+                                <div class="text-danger">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group">

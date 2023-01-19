@@ -31,7 +31,7 @@
                                     <input type="text" class="form-control" name="title" value="{{old('title')}}">
                                 </label>
                                 @error('title')
-                                <div class="text-danger">Поле необходимо заполнить</div>
+                                <div class="text-danger">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-50">
@@ -62,7 +62,7 @@
                                     <label class="custom-file-label">Выберите изображение</label>
                                 </div>
                                 @error('main_image')
-                                {{$message}}
+                                <div class="text-danger">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-50">
@@ -77,14 +77,14 @@
                                     </div>
                                 </div>
                                 @error('preview_image')
-                                <div class="text-danger">Поле необходимо заполнить</div>
+                                <div class="text-danger">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-50">
                                 <label>Описание</label>
                                 <textarea id="summernote" name="content">{{old('content')}}</textarea>
                                 @error('content')
-                                <div class="text-danger">Поле необходимо заполнить</div>
+                                <div class="text-danger">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
