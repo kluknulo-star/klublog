@@ -52,6 +52,16 @@ Route::prefix('/admin')->group(function () {
         Route::delete('/{post}', \App\Http\Controllers\Admin\Post\DestroyController::class)->name('admin.post.destroy')->where('post', '[0-9]+');
     });
 
+    Route::prefix('/users')->group(function () {
+        Route::get('', \App\Http\Controllers\Admin\User\IndexController::class)->name('admin.user.index');
+        Route::post('', \App\Http\Controllers\Admin\User\StoreController::class)->name('admin.user.store');
+        Route::get('/create', \App\Http\Controllers\Admin\User\CreateController::class)->name('admin.user.create');
+        Route::get('/{user}', \App\Http\Controllers\Admin\User\ShowController::class)->name('admin.user.show')->where('user', '[0-9]+');
+        Route::get('/{user}/edit', \App\Http\Controllers\Admin\User\EditController::class)->name('admin.user.edit')->where('user', '[0-9]+');
+        Route::patch('/{user}', \App\Http\Controllers\Admin\User\UpdateController::class)->name('admin.user.update')->where('user', '[0-9]+');
+        Route::delete('/{user}', \App\Http\Controllers\Admin\User\DestroyController::class)->name('admin.user.destroy')->where('user', '[0-9]+');
+    });
+
 });
 
 
