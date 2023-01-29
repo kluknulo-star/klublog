@@ -27,7 +27,7 @@
                             @csrf
                             <div class="form-group w-25">
                                 <label>
-                                    Название
+                                    Имя
                                     <input type="text" class="form-control" name="name" value="{{old('name')}}">
                                 </label>
                                 @error('name')
@@ -35,58 +35,31 @@
                                 @enderror
                             </div>
                             <div class="form-group w-50">
-                                <label for="categorySelect">Категория</label>
-                                <select class="form-control" id="categorySelect" name="category_id">
-                                    @foreach($categories as $category)
-                                        <option
-                                            {{$category->category_id == old('category_id') ? ' selected ' : ''}}
-                                            value="{{$category->category_id}}">{{$category->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group w-50">
-                                <label id="tagSelect">Теги</label>
-                                <select class="select2" multiple="multiple" data-placeholder="Select a State"
-                                        style="width: 100%;" name="tag_ids[]">
-                                    @foreach($tags as $tag)
-                                        <option
-                                            {{is_array(old('tag_ids')) && in_array($tag->tag_id, old('tag_ids')) ? ' selected ' : ''}}
-                                            value="{{$tag->tag_id}}">{{$tag->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group w-50">
-                                <label>Главное изображение</label>
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" name="main_image">
-                                    <label class="custom-file-label">Выберите изображение</label>
-                                </div>
-                                @error('main_image')
+                                <label>Email</label>
+                                <input type="email" class="form-control" name="email" value="{{old('email')}}">
+                                @error('email')
                                 <div class="text-danger">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-50">
-                                <label>Изображение для превью</label>
-                                <div class="input-group">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="preview_image">
-                                        <label class="custom-file-label">Выберите изображение</label>
-                                    </div>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">Загрузка</span>
-                                    </div>
-                                </div>
-                                @error('preview_image')
+                                <label>Пароль</label>
+                                <input type="password" class="form-control" name="password" value="{{old('password')}}">
+                                @error('password')
                                 <div class="text-danger">{{$message}}</div>
                                 @enderror
                             </div>
-                            <div class="form-group w-50">
-                                <label>Описание</label>
-                                <textarea id="summernote" name="content">{{old('content')}}</textarea>
-                                @error('content')
-                                <div class="text-danger">{{$message}}</div>
-                                @enderror
-                            </div>
+
+{{--                            <div class="form-group w-50">--}}
+{{--                                <label for="categorySelect">Выберите роль</label>--}}
+{{--                                <select class="form-control" id="roleSelect" name="role_id">--}}
+{{--                                @foreach($roles as $id => $role)--}}
+{{--                                        <option--}}
+{{--                                        {{$id == old('role_id') ? ' selected ' : ''}}--}}
+{{--                                        value="{{$id}}">{{$role}}</option>--}}
+{{--                                    @endforeach--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
+
                             <div class="form-group">
                                 <button type="submit" class="btn btn-dark">Создать</button>
                             </div>

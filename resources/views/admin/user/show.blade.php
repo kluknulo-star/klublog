@@ -35,6 +35,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Название</th>
+                                        <th>Email</th>
                                         <th>Дата создания</th>
                                     </tr>
                                     </thead>
@@ -42,6 +43,7 @@
                                     <tr>
                                         <td>{{$user->user_id}}</td>
                                         <td>{{$user->name}}</td>
+                                        <td>{{$user->email}}</td>
                                         <td>{{$user->created_at?? 'Неизвестно'}} </td>
                                     </tr>
                                     </tbody>

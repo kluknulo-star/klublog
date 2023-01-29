@@ -8,9 +8,10 @@ use App\Models\Tag;
 
 class DestroyController extends BaseController
 {
-    public function __invoke(User $User)
+    public function __invoke(User $user)
     {
-
+        $user->delete();
+        return redirect()->route('admin.user.index');
     }
 
 }

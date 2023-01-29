@@ -9,7 +9,7 @@ class EditController extends BaseController
 {
     public function __invoke(User $user)
     {
-
+        return view('admin.user.edit', compact('user'));
     }
 
 }

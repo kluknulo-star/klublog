@@ -14,7 +14,7 @@
                 </div><!-- /.row -->
                 <div class="col-12">
                     <a class="btn btn-dark" href="{{route('admin.user.create')}}" role="button">Добавить
-                        пост</a>
+                        пользователя</a>
                 </div>
             </div><!-- /.container-fluid -->
         </div>
