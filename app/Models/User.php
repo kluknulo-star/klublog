@@ -17,7 +17,7 @@ class User extends Authenticatable
     const ROLE_ADMIN = 0;
     const ROLE_READER = 1;
 
-    public function getRoles()
+    public static function getRoles()
     {
         return [
           self::ROLE_ADMIN => 'Админ',

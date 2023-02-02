@@ -49,16 +49,19 @@
                                 @enderror
                             </div>
 
-{{--                            <div class="form-group w-50">--}}
-{{--                                <label for="categorySelect">Выберите роль</label>--}}
-{{--                                <select class="form-control" id="roleSelect" name="role_id">--}}
-{{--                                @foreach($roles as $id => $role)--}}
-{{--                                        <option--}}
-{{--                                        {{$id == old('role_id') ? ' selected ' : ''}}--}}
-{{--                                        value="{{$id}}">{{$role}}</option>--}}
-{{--                                    @endforeach--}}
-{{--                                </select>--}}
-{{--                            </div>--}}
+                            <div class="form-group w-50">
+                                <label for="categorySelect">Выберите роль</label>
+                                <select class="form-control" id="roleSelect" name="role_id">
+                                    @foreach($roles as $id => $role)
+                                        <option
+                                            {{$id == old('role_id') ? ' selected ' : ''}}
+                                            value="{{$id}}">{{$role}}</option>
+                                    @endforeach
+                                </select>
+                                @error('role_id')
+                                <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
 
                             <div class="form-group">
                                 <button type="submit" class="btn btn-dark">Создать</button>

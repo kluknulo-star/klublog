@@ -19,7 +19,7 @@ Route::group([], function () {
 
 });
 
-Route::prefix('/admin')->group(function () {
+Route::prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('', \App\Http\Controllers\Admin\Post\IndexController::class);
 
     Route::prefix('/categories')->group(function (){

@@ -27,6 +27,7 @@ class StoreRequest extends FormRequest
             'name' => 'required|string',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string',
+            'role_id' => 'required|integer',
         ];
     }
 
@@ -40,6 +41,7 @@ class StoreRequest extends FormRequest
             'email.required' => 'Поле должно быть заполнено',
             'password.string' => 'Пароль должен быть строкой',
             'password.required' => 'Поле должно быть заполнено',
+            'role_id.required' => 'Поле должно быть заполнено',
         ];
     }
 }
