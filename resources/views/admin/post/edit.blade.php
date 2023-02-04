@@ -59,9 +59,8 @@
                             </div>
                             <div class="form-group w-50">
                                 <label>Главное изображение</label>
-                                <div class="w-25 mb-2">
-                                    <img src="{{asset('storage/' . $post->main_image)}}" alt="main_image"
-                                         height="150px">
+                                <div class="w-25">
+                                    <img src="{{$post->main_image}}" alt="main_image">
                                 </div>
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" name="main_image">

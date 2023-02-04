@@ -13,9 +13,9 @@ class EditController extends BaseController
     public function __invoke(Post $post)
     {
         $categories = Category::paginate(20);
-        $tagsInPost = $post->tags;
         $tags = Tag::paginate(20);
-        return view('admin.post.edit', compact('post', 'categories', 'tags', 'tagsInPost'));
+//        dd($post->tags->pluck('tag_id'));
+        return view('admin.post.edit', compact('post', 'categories', 'tags'));
     }
 
 }

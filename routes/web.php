@@ -19,7 +19,7 @@ Route::group([], function () {
 
 });
 
-Route::prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
+Route::prefix('/admin')->middleware(['auth', 'admin', 'verified'])->group(function () {
     Route::get('', \App\Http\Controllers\Admin\Post\IndexController::class);
 
     Route::prefix('/categories')->group(function (){
@@ -67,6 +67,6 @@ Route::prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
 
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
