@@ -14,13 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::group([], function () {
-    Route::get('/', \App\Http\Controllers\Main\IndexController::class);
+    Route::get('/', \App\Http\Controllers\Main\IndexController::class)->name('user.main.index');
 
 
 });
 
 Route::prefix('/admin')->middleware(['auth', 'admin', 'verified'])->group(function () {
-    Route::get('', \App\Http\Controllers\Admin\Post\IndexController::class);
+    Route::get('', \App\Http\Controllers\Admin\Main\IndexController::class)->name('admin.main.index');
 
     Route::prefix('/categories')->group(function (){
         Route::get('', \App\Http\Controllers\Admin\Category\IndexController::class)->name('admin.category.index');

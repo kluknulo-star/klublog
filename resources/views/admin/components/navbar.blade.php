@@ -131,7 +131,6 @@
 
         <li class="nav-item">
                 <form action="{{route('logout')}}" method="POST">
-                    @method('POST')
                     @csrf
                     <input type="submit" class="btn btn-light nav-link" value="Выйти">
                 </form>
