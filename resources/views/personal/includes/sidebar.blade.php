@@ -5,17 +5,17 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        {{--<div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
                 <img src="{{asset('dist/img/kirill.jpg')}}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
                 <a href="#" class="d-block">Киляков Кирилл</a>
             </div>
-        </div>
+        </div>--}}
 
         <!-- SidebarSearch Form -->
-        <div class="form-inline">
+        {{--<div class="form-inline">
             <div class="input-group" data-widget="sidebar-search">
                 <input class="form-control form-control-sidebar" type="search" placeholder="Search"
                        aria-label="Search">
@@ -25,7 +25,7 @@
                     </button>
                 </div>
             </div>
-        </div>
+        </div>--}}
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
@@ -34,9 +34,9 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
 
-                <li class="nav-header">MENU</li>
+                <li class="nav-header">Меню</li>
                 <li class="nav-item">
-                    <a href="{{route('admin.main.index')}}" class="nav-link">
+                    <a href="{{route('personal.main.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-home"></i>
                         <p>
                             Главная
@@ -44,36 +44,20 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('admin.user.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-user-friends"></i>
+                    <a href="{{route('personal.like.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-heart"></i>
                         <p>
-                            Пользователи
-{{--                            <span class="badge badge-info right">2</span>--}}
+                            Понравившиеся посты
+                            {{--                            <span class="badge badge-info right">2</span>--}}
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('admin.post.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-marker"></i>
+                    <a href="{{route('personal.comment.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-comment"></i>
                         <p>
-                            Посты
+                            Комментарии
                             <span class="badge badge-info right">2</span>
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('admin.category.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-folder-open"></i>
-                        <p>
-                            Категории
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('admin.tag.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-tags"></i>
-                        <p>
-                            Тэги
                         </p>
                     </a>
                 </li>

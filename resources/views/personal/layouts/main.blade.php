@@ -1,8 +1,4 @@
-{{--@extends('admin.layouts.main')--}}
-
-
-{{--@section('content')--}}
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -38,9 +34,9 @@
 <div class="wrapper">
 
 
-    @include('admin.includes.navbar')
+    @include('personal.includes.navbar')
     <!-- Main Sidebar Container -->
-    @include('admin.includes.sidebar')
+    @include('personal.includes.sidebar')
 
     @yield('content')
 

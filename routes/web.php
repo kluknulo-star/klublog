@@ -14,9 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::group([], function () {
-    Route::get('/', \App\Http\Controllers\Main\IndexController::class)->name('user.main.index');
+    Route::get('', \App\Http\Controllers\Main\IndexController::class)->name('main.index');
+});
 
 
+Route::prefix('/personal')->middleware(['auth', 'verified'])->group(function () {
+    Route::get('', \App\Http\Controllers\Personal\Main\IndexController::class)->name('personal.main.index');
+    Route::get('/like', \App\Http\Controllers\Personal\Like\IndexController::class)->name('personal.like.index');
+    Route::get('/comment', \App\Http\Controllers\Personal\Comment\IndexController::class)->name('personal.comment.index');
 });
 
 Route::prefix('/admin')->middleware(['auth', 'admin', 'verified'])->group(function () {
