@@ -20,6 +20,7 @@ Route::group([], function () {
 
 Route::prefix('/personal')->middleware(['auth', 'verified'])->group(function () {
     Route::get('', \App\Http\Controllers\Personal\Main\IndexController::class)->name('personal.main.index');
+    Route::delete('/{post}', \App\Http\Controllers\Personal\Like\DestroyController::class)->name('personal.like.destroy')->where('post', '[0-9]+');
     Route::get('/like', \App\Http\Controllers\Personal\Like\IndexController::class)->name('personal.like.index');
     Route::get('/comment', \App\Http\Controllers\Personal\Comment\IndexController::class)->name('personal.comment.index');
 });
