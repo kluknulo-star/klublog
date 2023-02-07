@@ -39,7 +39,8 @@
                                         <td>{{$post->post_id}}</td>
                                         <td>{{$post->title}}</td>
                                         <td class="text-center">
-                                            <a href="{{route('admin.post.show', ['post' => $post->post_id])}}"
+                                            <a
+{{--                                                href="{{route('personal.post.show', ['post' => $post->post_id])}}"--}}
                                                class="text-dark"><i class="far fa-eye"></i></a></td>
                                         <td class="text-center">
                                             <button class="border-0 bg-transparent">

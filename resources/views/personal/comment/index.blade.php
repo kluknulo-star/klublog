@@ -15,35 +15,91 @@
     </div>
     <!-- /.content-header -->
 
-
-
     <!-- Main content -->
     <div class="content">
         <div class="container-fluid">
-            <!-- Small boxes (Stat box) -->
             <div class="row">
-                {{--<div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                            <h3>{{123}}</h3>
+                <div class="col-12">
+                    <div class="card w-50">
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-head-fixed text-nowrap">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Название</th>
+                                    <th colspan="3" class="text-center">Действие</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($comments as $comment)
+                                    <tr>
+                                        <td>{{$comment->comment_id}}</td>
+                                        <td>{{$comment->message}}</td>
+                                        <td class="text-center">
+                                            <a
+                                                href="{{route('personal.comment.edit', ['comment' => $comment->comment_id])}}"
+                                               class="text-success"><i class="fas fa-pen"></i></a></td>
+                                        <td class="text-center">
+                                            <button class="border-0 bg-transparent">
+                                                <a class="text-danger" data-toggle="modal"
+                                                   data-target="#deleteCategoryModal{{$comment->comment_id}}">
+                                                    <i class="far fa-trash-alt"></i>
+                                                </a>
+                                            </button>
+                                        </td>
+                                    </tr>
 
-                            <p>Понравившиеся посты</p>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="deleteCategoryModal{{$comment->comment_id}}"
+                                         tabindex="-1" role="dialog" aria-labelledby="deleteCategoryModal"
+                                         aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="deleteCategoryModalLabel">Удаление
+                                                        поста</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Вы действительно хотите удалить тег "{{$comment->message}}"?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <form
+                                                        action="{{route('personal.comment.destroy', ['comment' => $comment->comment_id])}}"
+                                                        method="post">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Закрыть
+                                                        </button>
+                                                        <button type="submit" class="btn btn-danger">Удалить
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Modal -->
+                                @endforeach
+                                </tbody>
+                            </table>
                         </div>
-                        <div class="icon">
-                            <i class="fas fa-user-friends"></i>
-                        </div>
-                        <a href="{{route('admin.user.index')}}" class="small-box-footer">Подробнее <i class="fas fa-arrow-circle-right"></i></a>
+                        <!-- /.card-body -->
                     </div>
-                </div>--}}
-                <!-- ./col -->
+                    <!-- /.card -->
+                </div>
+
 
             </div>
             <!-- /.row -->
         </div>
-        <!-- /.container-fluid -->
     </div>
     <!-- /.content -->
+
 </div>
 <!-- /.content-wrapper -->
 @endsection

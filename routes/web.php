@@ -20,9 +20,16 @@ Route::group([], function () {
 
 Route::prefix('/personal')->middleware(['auth', 'verified'])->group(function () {
     Route::get('', \App\Http\Controllers\Personal\Main\IndexController::class)->name('personal.main.index');
-    Route::delete('/{post}', \App\Http\Controllers\Personal\Like\DestroyController::class)->name('personal.like.destroy')->where('post', '[0-9]+');
+    Route::delete('/post/{post}', \App\Http\Controllers\Personal\Like\DestroyController::class)->name('personal.like.destroy')->where('post', '[0-9]+');
     Route::get('/like', \App\Http\Controllers\Personal\Like\IndexController::class)->name('personal.like.index');
-    Route::get('/comment', \App\Http\Controllers\Personal\Comment\IndexController::class)->name('personal.comment.index');
+
+    Route::prefix('/comment')->group(function () {
+        Route::get('/', \App\Http\Controllers\Personal\Comment\IndexController::class)->name('personal.comment.index');
+        Route::get('/{comment}/edit', \App\Http\Controllers\Personal\Comment\EditController::class)->name('personal.comment.edit')->where('comment', '[0-9]+');
+        Route::patch('/{comment}', \App\Http\Controllers\Personal\Comment\UpdateController::class)->name('personal.comment.update')->where('comment', '[0-9]+');
+        Route::delete('/{comment}', \App\Http\Controllers\Personal\Comment\DestroyController::class)->name('personal.comment.destroy')->where('comment', '[0-9]+');
+
+    });
 });
 
 Route::prefix('/admin')->middleware(['auth', 'admin', 'verified'])->group(function () {

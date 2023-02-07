@@ -45,7 +45,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{route('personal.like.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-heart"></i>
+                        <i class="nav-icon far fa-heart"></i>
                         <p>
                             Понравившиеся посты
                             {{--                            <span class="badge badge-info right">2</span>--}}
@@ -54,7 +54,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{route('personal.comment.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-comment"></i>
+                        <i class="nav-icon far fa-comment"></i>
                         <p>
                             Комментарии
                             <span class="badge badge-info right">2</span>
