@@ -52,15 +52,15 @@
                                         style="width: 100%;" name="tag_ids[]">
                                     @foreach($tags as $tag)
                                         <option
-                                            {{$tagsInPost->contains($tag) ? ' selected ' : ''}}
+                                            {{$post->tags->contains($tag) ? ' selected ' : ''}}
                                             value="{{$tag->tag_id}}">{{$tag->title}}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group w-50">
                                 <label>Главное изображение</label>
-                                <div class="w-25">
-                                    <img src="{{$post->main_image}}" alt="main_image">
+                                <div class="w-25 mb-2">
+                                    <img src="{{asset('storage/' . $post->main_image)}}" alt="main_image" height="150px">
                                 </div>
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" name="main_image">

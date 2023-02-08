@@ -17,6 +17,11 @@ Route::group([], function () {
     Route::get('', \App\Http\Controllers\Main\IndexController::class)->name('main.index');
 });
 
+Route::prefix('/posts')->group(function () {
+    Route::get('', \App\Http\Controllers\Post\IndexController::class)->name('post.index');
+    Route::get('/{post}', \App\Http\Controllers\Post\ShowController::class)->where('post','[0-9]+')->name('post.show');
+
+});
 
 Route::prefix('/personal')->middleware(['auth', 'verified'])->group(function () {
     Route::get('', \App\Http\Controllers\Personal\Main\IndexController::class)->name('personal.main.index');
