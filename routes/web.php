@@ -19,8 +19,11 @@ Route::group([], function () {
 
 Route::prefix('/posts')->group(function () {
     Route::get('', \App\Http\Controllers\Post\IndexController::class)->name('post.index');
-    Route::get('/{post}', \App\Http\Controllers\Post\ShowController::class)->where('post','[0-9]+')->name('post.show');
+    Route::get('/{post}', \App\Http\Controllers\Post\ShowController::class)->where('post', '[0-9]+')->name('post.show');
 
+    Route::prefix('/{post}/comments')->group(function () {
+        Route::post('', \App\Http\Controllers\Post\Comment\StoreController::class)->name('post.comment.store');
+    });
 });
 
 Route::prefix('/personal')->middleware(['auth', 'verified'])->group(function () {
@@ -40,7 +43,7 @@ Route::prefix('/personal')->middleware(['auth', 'verified'])->group(function () 
 Route::prefix('/admin')->middleware(['auth', 'admin', 'verified'])->group(function () {
     Route::get('', \App\Http\Controllers\Admin\Main\IndexController::class)->name('admin.main.index');
 
-    Route::prefix('/categories')->group(function (){
+    Route::prefix('/categories')->group(function () {
         Route::get('', \App\Http\Controllers\Admin\Category\IndexController::class)->name('admin.category.index');
         Route::post('', \App\Http\Controllers\Admin\Category\StoreController::class)->name('admin.category.store');
         Route::get('/create', \App\Http\Controllers\Admin\Category\CreateController::class)->name('admin.category.create');
@@ -81,8 +84,6 @@ Route::prefix('/admin')->middleware(['auth', 'admin', 'verified'])->group(functi
     });
 
 });
-
-
 
 
 Auth::routes(['verify' => true]);

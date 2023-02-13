@@ -23,41 +23,42 @@
                         <h2 class="section-title mb-4" data-aos="fade-up">Рекомендации</h2>
                         <div class="row">
                             @foreach($relatedPosts as $relatedPost)
-                                    <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
-                                        <a href="{{route('post.show', ['post' => $relatedPost->post_id])}}">
+                                <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
+                                    <a href="{{route('post.show', ['post' => $relatedPost->post_id])}}">
                                         <img src="{{asset('storage/' . $relatedPost->main_image)}}" alt="related post"
                                              class="post-thumbnail">
                                         <p class="post-category">{{$relatedPost->category->title}}</p>
                                         <h5 class="post-title">{{$relatedPost->title}}</h5>
-                                        </a>
-                                    </div>
+                                    </a>
+                                </div>
                             @endforeach
                         </div>
                     </section>
+                    <section class="comment-list">
+                        <h2 class="section-title mb-5" data-aos="fade-up">Комментарии ({{$post->comments->count()}})</h2>
+
+                        @foreach($post->comments as $comment)
+                        <div class="comment-text">
+                    <span class="username">
+                      <div><b>{{$comment->user->name}}</b></div>
+                      <span class="text-muted float-right">{{$comment->getDateAsCarbon()}}</span>
+                    </span><!-- /.username -->
+                            {{$comment->message}}
+                        </div>
+                        </br>
+                        @endforeach
+                    </section>
+                    @auth()
                     <section class="comment-section">
-                        <h2 class="section-title mb-5" data-aos="fade-up">Leave a Reply</h2>
-                        <form action="/" method="post">
+                        <h2 class="section-title mb-5" data-aos="fade-up">Отправить комментарий</h2>
+                        <form action="{{route('post.comment.store', $post->post_id)}}" method="post">
+                            @csrf
                             <div class="row">
                                 <div class="form-group col-12" data-aos="fade-up">
                                     <label for="comment" class="sr-only">Comment</label>
-                                    <textarea name="comment" id="comment" class="form-control" placeholder="Comment"
-                                              rows="10">Comment</textarea>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group col-md-4" data-aos="fade-right">
-                                    <label for="name" class="sr-only">Name</label>
-                                    <input type="text" name="name" id="name" class="form-control" placeholder="Name*">
-                                </div>
-                                <div class="form-group col-md-4" data-aos="fade-up">
-                                    <label for="email" class="sr-only">Email</label>
-                                    <input type="email" name="email" id="email" class="form-control"
-                                           placeholder="Email*" required>
-                                </div>
-                                <div class="form-group col-md-4" data-aos="fade-left">
-                                    <label for="website" class="sr-only">Website</label>
-                                    <input type="url" name="website" id="website" class="form-control"
-                                           placeholder="Website*">
+                                    <textarea name="message" id="comment" class="form-control"
+                                              placeholder="Оставьте свой комментарий"
+                                              rows="10"></textarea>
                                 </div>
                             </div>
                             <div class="row">
@@ -67,6 +68,7 @@
                             </div>
                         </form>
                     </section>
+                        @endauth()
                 </div>
             </div>
         </div>
