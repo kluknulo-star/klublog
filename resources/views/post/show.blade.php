@@ -17,8 +17,36 @@
                     </div>
                 </div>
             </section>
+            <section class="likes">
+                <div class="d-flex justify-content-end">
+                    @auth()
+                        <form action="{{route('post.like.store', $post->post_id)}}" method="post">
+                            @csrf
+
+                            @if(auth()->user()->likedPosts->contains($post->post_id))
+                                <span>{{$post->liked_users_count}}</span>
+                                <button type="submit" class="border-0 bg-transparent"><i class="fas fa-heart"></i>
+                                </button>
+                            @else
+                                <span>{{$post->liked_users_count}}</span>
+                                <button type="submit" class="border-0 bg-transparent"><i class="far fa-heart"></i>
+                                </button>
+                            @endif
+                        </form>
+                    @endauth
+                        @guest()
+                            <div>
+                                <span>{{$post->liked_users_count}}</span>
+                                <i class="far fa-heart"></i>
+                            </div>
+                        @endguest
+                </div>
+            </section>
             <div class="row">
                 <div class="col-lg-9 mx-auto">
+
+
+                    @if($relatedPosts->count())
                     <section class="related-posts">
                         <h2 class="section-title mb-4" data-aos="fade-up">Рекомендации</h2>
                         <div class="row">
@@ -34,6 +62,7 @@
                             @endforeach
                         </div>
                     </section>
+                    @endif
                     <section class="comment-list">
                         <h2 class="section-title mb-5" data-aos="fade-up">Комментарии ({{$post->comments->count()}})</h2>
 

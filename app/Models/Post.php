@@ -13,6 +13,8 @@ class Post extends Model
     protected $primaryKey = 'post_id';
     protected $guarded = [];
 
+    protected $withCount = ['likedUsers'];
+
     public function tags()
     {
         return $this->belongsToMany(Tag::class, 'post_tags', 'post_id', 'tag_id');

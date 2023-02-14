@@ -12,7 +12,31 @@
                             <div class="blog-post-thumbnail-wrapper">
                                 <img src="{{ asset('storage/' . $post->main_image)}}" alt="blog post">
                             </div>
-                            <p class="blog-post-category">{{$post->category->title}}</p>
+                            <div class="d-flex justify-content-between">
+                                <p class="blog-post-category">{{$post->category->title}}</p>
+                                @auth()
+                                    <form action="{{route('post.like.store', $post->post_id)}}" method="post">
+                                        @csrf
+                                        {{$post->liked_users_count}}
+                                        @if(auth()->user()->likedPosts->contains($post->post_id))
+                                            <button type="submit" class="border-0 bg-transparent"><i
+                                                    class="fas fa-heart"></i>
+                                            </button>
+                                        @else
+                                            <button type="submit" class="border-0 bg-transparent"><i
+                                                    class="far fa-heart"></i>
+                                            </button>
+                                        @endif
+                                    </form>
+                                @endauth
+
+                                @guest()
+                                    <div>
+                                        <span>{{$post->liked_users_count}}</span>
+                                        <i class="far fa-heart"></i>
+                                    </div>
+                                @endguest
+                            </div>
                             <a href="{{route('post.show', ['post' => $post->post_id])}}" class="blog-post-permalink">
                                 <h6 class="blog-post-title">{{$post->title}}</h6>
                             </a>
@@ -34,8 +58,33 @@
                                     <div class="blog-post-thumbnail-wrapper">
                                         <img src="{{ asset('storage/' . $randomPost->main_image) }}" alt="blog post">
                                     </div>
-                                    <p class="blog-post-category">{{$randomPost->category->title}}</p>
-                                    <a href="{{route('post.show', ['post' => $randomPost->post_id])}}" class="blog-post-permalink">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="blog-post-category">{{$randomPost->category->title}}</p>
+                                        @auth()
+                                            <form action="{{route('post.like.store', $randomPost->post_id)}}"
+                                                  method="post">
+                                                @csrf
+                                                {{$randomPost->liked_users_count}}
+                                                @if(auth()->user()->likedPosts->contains($randomPost->post_id))
+                                                    <button type="submit" class="border-0 bg-transparent"><i
+                                                            class="fas fa-heart"></i>
+                                                    </button>
+                                                @else
+                                                    <button type="submit" class="border-0 bg-transparent"><i
+                                                            class="far fa-heart"></i>
+                                                    </button>
+                                                @endif
+                                            </form>
+                                        @endauth
+                                        @guest()
+                                            <div>
+                                                <span>{{$post->liked_users_count}}</span>
+                                                <i class="far fa-heart"></i>
+                                            </div>
+                                        @endguest
+                                    </div>
+                                    <a href="{{route('post.show', ['post' => $randomPost->post_id])}}"
+                                       class="blog-post-permalink">
                                         <h6 class="blog-post-title">{{$randomPost->title}}</h6>
                                     </a>
                                 </div>
@@ -49,7 +98,8 @@
                         <ul class="post-list">
                             <li class="post">
                                 @foreach($popularPosts as $popularPost)
-                                    <a href="{{route('post.show', ['post' => $popularPost->post_id])}}" class="post-permalink media">
+                                    <a href="{{route('post.show', ['post' => $popularPost->post_id])}}"
+                                       class="post-permalink media">
                                         <img src="{{ asset('storage/' . $popularPost->main_image) }}" alt="blog post">
                                         <div class="media-body">
                                             <h6 class="post-title">{{$popularPost->title}}</h6>

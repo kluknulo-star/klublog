@@ -17,6 +17,13 @@ Route::group([], function () {
     Route::get('', \App\Http\Controllers\Main\IndexController::class)->name('main.index');
 });
 
+Route::prefix('/categories')->group( function () {
+    Route::get('', \App\Http\Controllers\Category\IndexController::class)->name('category.index');
+    Route::prefix('/{category}/posts')->group(function () {
+        Route::get('', \App\Http\Controllers\Category\Post\IndexController::class)->name('category.posts.index');
+    });
+});
+
 Route::prefix('/posts')->group(function () {
     Route::get('', \App\Http\Controllers\Post\IndexController::class)->name('post.index');
     Route::get('/{post}', \App\Http\Controllers\Post\ShowController::class)->where('post', '[0-9]+')->name('post.show');
@@ -24,6 +31,11 @@ Route::prefix('/posts')->group(function () {
     Route::prefix('/{post}/comments')->group(function () {
         Route::post('', \App\Http\Controllers\Post\Comment\StoreController::class)->name('post.comment.store');
     });
+
+    Route::prefix('/{post}/likes')->group(function () {
+        Route::post('', \App\Http\Controllers\Post\Like\StoreController::class)->name('post.like.store');
+    });
+
 });
 
 Route::prefix('/personal')->middleware(['auth', 'verified'])->group(function () {
@@ -31,12 +43,11 @@ Route::prefix('/personal')->middleware(['auth', 'verified'])->group(function () 
     Route::delete('/post/{post}', \App\Http\Controllers\Personal\Like\DestroyController::class)->name('personal.like.destroy')->where('post', '[0-9]+');
     Route::get('/like', \App\Http\Controllers\Personal\Like\IndexController::class)->name('personal.like.index');
 
-    Route::prefix('/comment')->group(function () {
+    Route::prefix('/comments')->group(function () {
         Route::get('/', \App\Http\Controllers\Personal\Comment\IndexController::class)->name('personal.comment.index');
         Route::get('/{comment}/edit', \App\Http\Controllers\Personal\Comment\EditController::class)->name('personal.comment.edit')->where('comment', '[0-9]+');
         Route::patch('/{comment}', \App\Http\Controllers\Personal\Comment\UpdateController::class)->name('personal.comment.update')->where('comment', '[0-9]+');
         Route::delete('/{comment}', \App\Http\Controllers\Personal\Comment\DestroyController::class)->name('personal.comment.destroy')->where('comment', '[0-9]+');
-
     });
 });
 

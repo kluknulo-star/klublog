@@ -30,6 +30,9 @@
                                 class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
+                        <a class="nav-link" href="{{route('category.index')}}">Категории</a>
+                    </li>
+                    <li class="nav-item active">
                         @auth()
                             <a class="nav-link" href="{{route('personal.main.index')}}">Личный кабинет</a>
                         @endauth
