@@ -1,5 +1,7 @@
 stages:
   - build
+  - deploy
+  - clear
 
 variables:
   REGISTRY: "registry.gitlab.com/laravel3605010/klublog"
