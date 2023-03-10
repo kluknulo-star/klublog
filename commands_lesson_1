@@ -7,3 +7,4 @@ php artisan ui bootstrap
 Подключаемм стандартную аутентификацию
 php artisan ui:auth
 
+
