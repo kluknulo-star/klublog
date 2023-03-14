@@ -6,10 +6,12 @@
         <div class="container">
             <h1 class="edica-page-title" data-aos="fade-up">Посты по категории "{{$category->title}}"</h1>
             <section class="featured-posts-section">
-
+                @if (!count($posts))
+                    <h2 data-aos="fade-left"> Нет постов по заданной категории</h2>
+                @endif
                 <div class="row mb-4">
                     @foreach($posts as $post)
-                        <div class="col-md-4 fetured-post blog-post" data-aos="fade-up">
+                        <div class="col-md-4 fetured-post blog-post" data-aos="fade-left">
                             <div class="blog-post-thumbnail-wrapper">
                                 <img src="{{ asset('storage/' . $post->main_image)}}" alt="blog post">
                             </div>
@@ -50,11 +52,6 @@
                     </div>
                 </div>
             </section>
-            <div class="row">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A et laudantium libero nesciunt nostrum
-                    optio reiciendis totam ullam vel voluptates? Doloremque harum labore magnam, molestias natus quo
-                    quod repellendus! Adipisci.</p>
-            </div>
         </div>
 
     </main>

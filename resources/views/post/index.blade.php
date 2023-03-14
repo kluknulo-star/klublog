@@ -2,6 +2,7 @@
 
 
 @section('content')
+
     <main class="blog">
         <div class="container">
             <h1 class="edica-page-title" data-aos="fade-up">Блог</h1>
@@ -108,11 +109,6 @@
                                 @endforeach
                             </li>
                         </ul>
-                    </div>
-                    <div class="widget">
-                        <h5 class="widget-title">Categories</h5>
-                        <img src="{{ asset('assets/images/blog_widget_categories.jpg') }}" alt="categories"
-                             class="w-100">
                     </div>
                 </div>
             </div>
