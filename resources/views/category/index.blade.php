@@ -6,7 +6,7 @@
         <div class="container">
             <h1 class="edica-page-title" data-aos="fade-up">Категории</h1>
             <section class="featured-posts-section">
-                <div class="row justify-content-center">
+                <div class="row">
                     @foreach($categories as $category)
                     <div class="col-sm-4 mb-3">
                         <a href="{{route('category.posts.index', $category->category_id)}}">

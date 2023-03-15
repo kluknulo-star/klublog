@@ -79,7 +79,7 @@
                     </section>
                     @auth()
                     <section class="comment-section">
-                        <h2 class="section-title mb-5" data-aos="fade-up">Отправить комментарий</h2>
+
                         <form action="{{route('post.comment.store', $post->post_id)}}" method="post">
                             @csrf
                             <div class="row">
@@ -92,7 +92,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12" data-aos="fade-up">
-                                    <input type="submit" value="Send Message" class="btn btn-warning">
+                                    <input type="submit" value="Отправить комментарий" class="btn btn-warning">
                                 </div>
                             </div>
                         </form>

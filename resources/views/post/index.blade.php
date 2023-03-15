@@ -7,7 +7,7 @@
         <div class="container">
             <h1 class="edica-page-title" data-aos="fade-up">Блог</h1>
             <section class="featured-posts-section">
-                <div class="row mb-4">
+                <div class="row">
                     @foreach($posts as $post)
                         <div class="col-md-4 fetured-post blog-post" data-aos="fade-up">
                             <div class="blog-post-thumbnail-wrapper">
@@ -44,14 +44,16 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="row mb-4">
-                    <div class="m-auto" style="margin-top: -100px; ">
+                <div class="row mb-5">
+                    <div class="m-auto">
                         {{$posts->links()}}
                     </div>
                 </div>
             </section>
             <div class="row">
                 <div class="col-md-8">
+                    <h3 class="widget-title mb-3">Популярные посты</h3>
+
                     <section>
                         <div class="row blog-post-row">
                             @foreach($randomPosts as $randomPost)
