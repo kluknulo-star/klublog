@@ -22,11 +22,11 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-
         $admin = User::create([
             'name' => 'Админ всея Руси',
             'email' => 'admin@kluknulo.ru',
             'password' => Hash::make('admin@kluknulo.ru'),
+            'role_id' => 0
         ]);
     }
 }
