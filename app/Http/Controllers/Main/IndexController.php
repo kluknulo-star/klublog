@@ -10,6 +10,11 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        return redirect()->route('post.index');
+        $route = 'personal.main.index';
+        if (auth()->user()->role_id === 0)
+        {
+            $route = 'admin.main.index';
+        }
+        return redirect()->route($route);
     }
 }

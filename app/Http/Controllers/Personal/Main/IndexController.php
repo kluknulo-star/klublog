@@ -9,6 +9,7 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        return view('personal.main.index');
+        return redirect()->route('personal.like.index');
+//        return view('personal.main.index');
     }
 }

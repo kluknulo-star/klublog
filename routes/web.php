@@ -13,9 +13,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group([], function () {
-    Route::get('', \App\Http\Controllers\Main\IndexController::class)->name('main.index');
-    Route::get('/', \App\Http\Controllers\Main\IndexController::class)->name('main.index');
+
+Route::get('', function (){
+    return redirect()->route('post.index');
+})->name('main.index');
+
+Route::prefix('/signin')->middleware(['auth'])->group(function () {
+    Route::get('', \App\Http\Controllers\Main\IndexController::class)->name('cabinet.index');
 });
 
 Route::prefix('/categories')->group( function () {

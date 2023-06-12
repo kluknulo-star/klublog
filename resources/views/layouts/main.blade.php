@@ -36,11 +36,11 @@
                     </li>
                     <li class="nav-item active">
                         @auth()
-                            <a class="nav-link" href="{{route('personal.main.index')}}">Личный кабинет</a>
+                            <a class="nav-link" href="{{route('cabinet.index')}}">Личный кабинет</a>
                         @endauth
 
                         @guest()
-                            <a class="nav-link" href="{{route('personal.main.index')}}">Войти</a>
+                            <a class="nav-link" href="{{route('cabinet.index')}}">Войти</a>
                         @endguest
                     </li>
                 </ul>
