@@ -5,6 +5,8 @@ Klublog - блог в котором можно окунуться в мир т�
 
 ```composer install```
 
+```npm run build```
+
 ```cp .env.example .env```
 
 ```php artisan key:generate```
