@@ -22,21 +22,23 @@ Klublog - блог в котором можно окунуться в мир т�
 
 ### Данные для входа (логин и пароль одинаковы!!!)
 
-Сайт:http://kluknulo.ru:8030/
+Сайт: https://kluknulo.ru/projects/1
 
 Пользователь логин:user@kluknulo.ru
 
 Админ логин:admin@kluknulo.ru
 
 ### Обзор от админа
-![image](https://github.com/kluknulo-star/klublog/assets/81085234/5cd1bc3a-e2cf-47ea-b8fc-b3634bf07df4)
-![image](https://github.com/kluknulo-star/klublog/assets/81085234/41c11256-20b9-479f-b1e6-cb549dae50ed)
+![image](https://github.com/kluknulo-star/klublog/assets/81085234/5da422f2-a5a1-4a29-acf8-824c1383278b)
+![image](https://github.com/kluknulo-star/klublog/assets/81085234/a054e824-d1e6-44c3-af53-9437b070a6cb)
+![image](https://github.com/kluknulo-star/klublog/assets/81085234/0d6209be-e652-4ab3-924c-2b6360527e3a)
+
 
 
 ### Обзор от пользователя
-![image](https://github.com/kluknulo-star/klublog/assets/81085234/55f18210-325a-4a86-928e-6915330ac859)
-![image](https://github.com/kluknulo-star/klublog/assets/81085234/bfa902ea-3540-46e3-97d9-df637c832005)
-![image](https://github.com/kluknulo-star/klublog/assets/81085234/61bda8bf-749e-47c8-ba1d-e3a6eb7d00eb)
+![image](https://github.com/kluknulo-star/klublog/assets/81085234/a13cfafe-4bc1-4011-8027-47294e193e4c)
+![image](https://github.com/kluknulo-star/klublog/assets/81085234/1224578b-1334-41f8-9409-a8b15670d187)
+
 
 
 
